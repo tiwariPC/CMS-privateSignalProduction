@@ -34,7 +34,7 @@ class condorJobHelper(object):
         outSubmit.write('\n'+'WhenToTransferOutput = ON_EXIT')
         outSubmit.write('\n'+'Transfer_Input_Files = '+self.fileName+'.sh, ' + self.listOfFilesToTransfer)
         outSubmit.write('\n'+'Transfer_Output_Files = dummyFile')
-        # outSubmit.write('\n'+'+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel7"') ##for uscms
+        outSubmit.write('\n'+'+JobFlavour = "testmatch"')
         if self.request_memory != 0: outSubmit.write('\n'+'request_memory = '+str(self.request_memory))
         if self.request_cpus != 0: outSubmit.write('\n'+'request_cpus = '+ str(self.request_cpus))
         return self.fileName+'.submit'
