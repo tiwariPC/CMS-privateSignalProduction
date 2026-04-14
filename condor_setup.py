@@ -76,6 +76,8 @@ for key in gridpackList.models:
             condorJobHelper.Arguments = ( "NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py " + DirName + os.sep + dirTag + "  " + gridpack.replace("/", "\\/"))
             submitFile = condorJobHelper.submitFileAppendLogInfo()
 
+condorJobHelper.submitJobsWriter()
+
 outScript = open(condor_file_name + ".sh", "w")
 
 outScript.write("#!/bin/bash")

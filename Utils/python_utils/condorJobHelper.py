@@ -1,6 +1,8 @@
 import os
 import sys
 
+user = os.environ.get("USER", "").strip()
+
 class condorJobHelper(object):
     """docstring for condorJobHelper"""
     def __init__(self, fileName="test",
@@ -19,12 +21,14 @@ class condorJobHelper(object):
         self.logFileName = logFileName
         self.Arguments = Arguments
         self.Queue = Queue
+        self.jobList = []
 
     def submitFileHeaderCreater(self):
         outSubmit = open(self.fileName+'.submit','w')
-        outSubmit.write('\n'+'Universe = vanilla')
+        outSubmit.write('Universe = vanilla')
         outSubmit.write('\n'+'use_x509userproxy = True')
-        outSubmit.write('Executable = '+self.fileName+'.sh')
+        outSubmit.write('\n'+f'x509userproxy = /afs/cern.ch/user/{user[:1]}/{user}/private/x509up_u{os.getuid()}')
+        outSubmit.write('\n'+'Executable = '+self.fileName+'.sh')
         outSubmit.write('\n'+'Notification = ERROR')
         outSubmit.write('\n'+'Should_Transfer_Files = YES')
         outSubmit.write('\n'+'WhenToTransferOutput = ON_EXIT')
@@ -36,12 +40,19 @@ class condorJobHelper(object):
         return self.fileName+'.submit'
 
     def submitFileAppendLogInfo(self):
+        self.jobList.append((self.logFileName, self.Arguments))
+        return self.fileName+'.submit'
+
+    def submitJobsWriter(self):
         outSubmit = open(self.fileName+'.submit','a')
-        outSubmit.write('\n'+'Output = '+self.logFilePath+os.sep+self.logFileName+'_$(Cluster)_$(Process).stdout')
-        outSubmit.write('\n'+'Error  = '+self.logFilePath+os.sep+self.logFileName+'_$(Cluster)_$(Process).stderr')
-        outSubmit.write('\n'+'Log  = '+self.logFilePath+os.sep+self.logFileName+'_$(Cluster)_$(Process).log')
-        outSubmit.write('\n'+'Arguments = $(Cluster) $(Process) '+self.Arguments)
-        outSubmit.write('\n'+'Queue '+str(self.Queue))
+        outSubmit.write('\n'+'Output = '+self.logFilePath+os.sep+'$(job_name)_$(Cluster)_$(Process).stdout')
+        outSubmit.write('\n'+'Error  = '+self.logFilePath+os.sep+'$(job_name)_$(Cluster)_$(Process).stderr')
+        outSubmit.write('\n'+'Log  = '+self.logFilePath+os.sep+'$(job_name)_$(Cluster)_$(Process).log')
+        outSubmit.write('\n'+'Arguments = $(Cluster) $(Process) $(job_args)')
+        outSubmit.write('\n'+'Queue '+str(self.Queue)+' job_name, job_args from (')
+        for job_name, job_args in self.jobList:
+            outSubmit.write('\n    '+job_name+', '+job_args)
+        outSubmit.write('\n)')
         outSubmit.close()
 
     def shFileHeaderCreater(self):
