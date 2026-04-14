@@ -1,10 +1,10 @@
-import os
+import subprocess
 import sys
 
 sys.path.append("Utils/python_utils/.")
 from color_style import style
 
-output = os.popen('condor_q -submitter rasharma').read()
+output = subprocess.run(['condor_q', '-submitter', 'rasharma'], capture_output=True, text=True).stdout
 
 error_check_string = [ 'Server responded with an error',
                        'The remote file is not open']
@@ -26,8 +26,7 @@ for outputs in output.split('\n'):
     print(style.GREEN + outputs+style.RESET+"\n\n")
     print("COMMAND: ",condor_tail)
     print("\n")
-    # os.system(condor_tail)
-    output = os.popen(condor_tail).read()
+    output = subprocess.run(condor_tail.split(), capture_output=True, text=True).stdout
 
     foundOrNot = any(match in output for match in error_check_string)
 
@@ -35,7 +34,7 @@ for outputs in output.split('\n'):
         print(style.RED + "ERROR: Going to kill this job" + style.RESET)
         killCommand = "condor_rm "+outputs.split()[0]+" -name "+lpcschedd
         print(style.RED + "Running Command: " + killCommand + style.RESET)
-        os.system(killCommand)
+        subprocess.run(killCommand.split(), check=True)
         print(style.RED + "Successfully killed." + style.RESET)
     else:
         print(output)

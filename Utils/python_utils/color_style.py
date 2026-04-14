@@ -1,7 +1,8 @@
 import os
+import sys
 
 # Group of Different functions for different styles
-os.system("")
+sys.stdout.write("")  # enables ANSI escape codes on Windows
 class style():
     BLACK = '\033[30m'
     RED = '\033[31m'

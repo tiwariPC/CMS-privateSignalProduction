@@ -1,4 +1,5 @@
 import os
+import subprocess
 from datetime import datetime
 
 
@@ -44,7 +45,7 @@ class FileHelper:
                 self.OutputDirectoryPath.rstrip("/") + "/"
             )
 
-            os.system(f"eos root://cmseos.fnal.gov mkdir -p {new_directory_name}")
+            subprocess.run(["eos", "root://cmseos.fnal.gov", "mkdir", "-p", new_directory_name], check=True)
 
     def GetOutPutFileList(self):
         """

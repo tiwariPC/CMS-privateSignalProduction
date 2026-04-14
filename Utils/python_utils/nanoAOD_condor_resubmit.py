@@ -1,4 +1,5 @@
 import os
+import shutil
 import subprocess
 from optparse import OptionParser
 import ROOT
@@ -86,7 +87,7 @@ def prepare_runJobs_missing(FailedJobRootFile, InputSubmitFile, CondorLogDir, EO
         print("CondorLogDir:", CondorLogDir)
         print("EOSDir:", EOSDir)
 
-    os.system(f"cp {InputSubmitFile} original_{InputSubmitFile}")
+    shutil.copy2(InputSubmitFile, f"original_{InputSubmitFile}")
 
     outsubmit_fileName = InputSubmitFile.replace(".submit", "") + f"_resubmit_{Resubmit_no}.submit"
 
@@ -100,7 +101,7 @@ def prepare_runJobs_missing(FailedJobRootFile, InputSubmitFile, CondorLogDir, EO
         for RootFiles in FailedJobRootFile:
 
             grep_cmd = f"grep {RootFiles.replace('.root','')} {CondorLogDir}/*.stdout"
-            grep_stdout_files = os.popen(grep_cmd).read()
+            grep_stdout_files = subprocess.run(grep_cmd.split(), capture_output=True, text=True).stdout
 
             OldRefFile = ""
 
@@ -114,7 +115,7 @@ def prepare_runJobs_missing(FailedJobRootFile, InputSubmitFile, CondorLogDir, EO
                     OldRefFile = parts[-1]
 
             grep_submit_cmd = f'grep -A1 -B3 "{RootFiles}" {InputSubmitFile}'
-            grep_condor_submit_part = os.popen(grep_submit_cmd).read()
+            grep_condor_submit_part = subprocess.run(grep_submit_cmd.split(), capture_output=True, text=True).stdout
 
             updateString = grep_condor_submit_part.replace(
                 '$(Process)',

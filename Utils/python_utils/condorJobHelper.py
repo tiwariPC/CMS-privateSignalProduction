@@ -6,13 +6,13 @@ user = os.environ.get("USER", "").strip()
 class condorJobHelper(object):
     """docstring for condorJobHelper"""
     def __init__(self, fileName="test",
-                 listOfFilesToTransfer="",
-                 request_memory=0,
-                 request_cpus=0,
-                 logFilePath = 'test',
-                 logFileName = 'test',
-                 Arguments="",
-                 Queue=1):
+                    listOfFilesToTransfer="",
+                    request_memory=0,
+                    request_cpus=0,
+                    logFilePath = 'test',
+                    logFileName = 'test',
+                    Arguments="",
+                    Queue=1):
         self.fileName = fileName
         self.listOfFilesToTransfer = listOfFilesToTransfer
         self.request_memory = request_memory
