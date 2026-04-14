@@ -13,7 +13,7 @@ echo "Input Arguments: $4"
 echo "Input Arguments: $5"
 echo "###################################################"
 
-OUTDIR=root://eoscms.cern.ch//eos/cms/store/group/phys_exotica/bbMET/llp_slimmer2017/signalsample/privateSignalProduction/${4}/
+OUTDIR=root://eoscms.cern.ch//eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_PrivateSamples//2022/${4}/
 
 echo "======="
 ls
@@ -26,7 +26,7 @@ cd CMSSW_12_4_14_patch3/src/
 eval `scram runtime -sh`
 cd -
 echo "+=============================="
-echo "==> Running GEN SIM step"
+echo "==> Running LHE GEN SIM step"
 sed -i "s/args = cms.vstring.*/args = cms.vstring(\"${5}\"),/g" NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py 
 echo "+=============================="
 cmsRun NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py 
@@ -63,9 +63,6 @@ echo "========================="
 echo "==> List all files..."
 echo "pwd : ${PWD}"
 ls 
-echo "+=============================="
-date
-
 echo "+=============================="
 echo "==> Running NanoAOD..."
 eval `scramv1 project CMSSW CMSSW_13_0_13`

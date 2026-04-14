@@ -3,14 +3,14 @@ import os
 import sys
 
 sys.path.append("Utils/python_utils/")
-import gridpack_list as sampleLists
+import gridpackList
 
 from color_style import style
 
 """Fields changed by user"""
-StringToChange = "privateSignalProduction"
-condor_file_name = StringToChange
-storeAreaPath = "/eos/cms/store/group/phys_exotica/bbMET/llp_slimmer2017/"
+StringToChange = "2022"
+condor_file_name = 'privateSignalProduction'
+storeAreaPath = "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_PrivateSamples/"
 storeAreaPathForlogs = "."
 
 """Create log files"""
@@ -32,15 +32,15 @@ dirsToCreate = fileshelper.FileHelper(
 output_log_path = dirsToCreate.CreateLogDirWithDate()
 dirTag = dirsToCreate.dirName
 """Create directories for different models at EOS"""
-for key in sampleLists.models:
+for key in gridpackList.models:
     if key == "radion":
-        for gridpcaks in sampleLists.models[key]:
-            DirName = gridpcaks.split("/")[-1].split("_")
+        for gridpack in gridpackList.models[key]:
+            DirName = gridpack.split("/")[-1].split("_")
             DirName = (
                 DirName[0] + "_" + DirName[1] + "_" + DirName[2] + "_" + DirName[3]
             )
             storeDir = dirsToCreate.createStoreDirWithDate(StringToChange, DirName)
-            print(storeDir)
+            print('storeDir',storeDir)
             infoLogFiles.SendGitLogAndPatchToEos(storeDir)
 
 
@@ -63,15 +63,14 @@ condorJobHelper = condorJobHelper.condorJobHelper(
 submitFile = condorJobHelper.submitFileHeaderCreater()
 print("==> submitfile name: ", submitFile)
 
-for key in sampleLists.models:
+for key in gridpackList.models:
     print(key)
     if key == "bbdm":
-        for gridpcaks in sampleLists.models[key]:
-            DirName = gridpcaks.split("/")[-1].split("_")
+        for gridpack in gridpackList.models[key]:
+            DirName = gridpack.split("/")[-1].split("_")
             DirName = ( DirName[0]+ "_" + DirName[1] + "_" + DirName[2] + "_" + DirName[3] + "_" + DirName[4] + "_" + DirName[5])
             condorJobHelper.logFileName = DirName
-            condorJobHelper.Arguments = (
-                "NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py " + DirName + os.sep + dirTag + "  " + gridpcaks.replace("/", "\\/"))
+            condorJobHelper.Arguments = ( "NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py " + DirName + os.sep + dirTag + "  " + gridpack)
             submitFile = condorJobHelper.submitFileAppendLogInfo()
 
 outScript = open(condor_file_name + ".sh", "w")

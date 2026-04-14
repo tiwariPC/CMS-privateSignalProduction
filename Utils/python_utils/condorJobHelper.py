@@ -22,15 +22,15 @@ class condorJobHelper(object):
 
     def submitFileHeaderCreater(self):
         outSubmit = open(self.fileName+'.submit','w')
-        outSubmit.write('Executable = '+self.fileName+'.sh')
         outSubmit.write('\n'+'Universe = vanilla')
+        outSubmit.write('\n'+'use_x509userproxy = True')
+        outSubmit.write('Executable = '+self.fileName+'.sh')
         outSubmit.write('\n'+'Notification = ERROR')
         outSubmit.write('\n'+'Should_Transfer_Files = YES')
         outSubmit.write('\n'+'WhenToTransferOutput = ON_EXIT')
         outSubmit.write('\n'+'Transfer_Input_Files = '+self.fileName+'.sh, ' + self.listOfFilesToTransfer)
         outSubmit.write('\n'+'Transfer_Output_Files = dummyFile')
-        outSubmit.write('\n'+'use_x509userproxy = True')
-        outSubmit.write('\n'+'+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel7"') ##for uscms
+        # outSubmit.write('\n'+'+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/cmssw/cms:rhel7"') ##for uscms
         if self.request_memory != 0: outSubmit.write('\n'+'request_memory = '+str(self.request_memory))
         if self.request_cpus != 0: outSubmit.write('\n'+'request_cpus = '+ str(self.request_cpus))
         return self.fileName+'.submit'
