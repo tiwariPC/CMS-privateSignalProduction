@@ -26,7 +26,7 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(1250),
+    input = cms.untracked.int32(100),
     output = cms.untracked.int32(100)
 )
 
@@ -183,7 +183,7 @@ process.generator = cms.EDFilter("Pythia8HadronizerFilter",
 process.externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
     args = cms.vstring('/cvmfs/cms.cern.ch/phys_generator/gridpacks/PdmV/Run3Summer22/MadGraph5_aMCatNLO/Z/Zto2Nu-2Jets_2J_PTNuNu-40to100_amcatnloFXFX-pythia8_slc7_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz'),
     generateConcurrently = cms.untracked.bool(False),
-    nEvents = cms.untracked.uint32(1250),
+    nEvents = cms.untracked.uint32(100),
     numberOfParameters = cms.uint32(1),
     outputFile = cms.string('cmsgrid_final.lhe'),
     scriptName = cms.FileInPath('GeneratorInterface/LHEInterface/data/run_generic_tarball_cvmfs.sh')
@@ -232,6 +232,7 @@ process.RandomNumberGeneratorService.externalLHEProducer.initialSeed=int(28)
 from Configuration.StandardSequences.earlyDeleteSettings_cff import customiseEarlyDelete
 process = customiseEarlyDelete(process)
 # End adding early deletion
+
 from IOMC.RandomEngine.RandomServiceHelper import RandomNumberServiceHelper
 randSvc = RandomNumberServiceHelper(process.RandomNumberGeneratorService)
 randSvc.populate()

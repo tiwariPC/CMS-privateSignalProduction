@@ -1,12 +1,13 @@
-# H4L Info
+# CMS Private Signal Production
 
-- Full sim scripts download from: [https://cms-pdmv.cern.ch/mcm/chained_requests?prepid=B2G-chain_RunIISummer20UL17wmLHEGEN_flowRunIISummer20UL17SIM_flowRunIISummer20UL17DIGIPremix_flowRunIISummer20UL17HLT_flowRunIISummer20UL17RECO_flowRunIISummer20UL17MiniAODv2-00068&page=0&shown=15](https://cms-pdmv.cern.ch/mcm/chained_requests?prepid=B2G-chain_RunIISummer20UL17wmLHEGEN_flowRunIISummer20UL17SIM_flowRunIISummer20UL17DIGIPremix_flowRunIISummer20UL17HLT_flowRunIISummer20UL17RECO_flowRunIISummer20UL17MiniAODv2-00068&page=0&shown=15)
-   - wmLHEGEN (CMSSW_10_6_18): https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_setup/B2G-RunIISummer20UL17wmLHEGEN-00005
-   - SIM (CMSSW_10_6_17_patch1): https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_setup/B2G-RunIISummer20UL17SIM-00001
-   - DIGIPremix (CMSSW_10_6_17_patch1): https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_setup/B2G-RunIISummer20UL17DIGIPremix-00001
-   - HLT (CMSSW_9_4_14_UL_patch1): https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_setup/B2G-RunIISummer20UL17HLT-00001
-   - RECO (CMSSW_10_6_17_patch1): https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_setup/B2G-RunIISummer20UL17RECO-00001
-   - MiniAOD (CMSSW_10_6_20): https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_setup/B2G-RunIISummer20UL17MiniAODv2-00068
+## MCM Info
+
+### 2022
+- Full simulation scripts download from: [GEN-chain_Run3Summer22wmLHEGS_flowRun3Summer22DRPremix_flowRun3Summer22MiniAODv4_flowRun3Summer22NanoAODv12-00313](https://cms-pdmv-prod.web.cern.ch/mcm/chained_requests?prepid=GEN-chain_Run3Summer22wmLHEGS_flowRun3Summer22DRPremix_flowRun3Summer22MiniAODv4_flowRun3Summer22NanoAODv12-00313)
+   - wmLHEGENSIM (CMSSW_12_4_14_patch3): https://cms-pdmv-prod.web.cern.ch/mcm/requests?prepid=GEN-Run3Summer22wmLHEGS-00481
+   - DIGIPremix (CMSSW_12_4_14_patch3): https://cms-pdmv-prod.web.cern.ch/mcm/requests?prepid=GEN-Run3Summer22DRPremix-00328
+   - MiniAOD (CMSSW_13_0_13): https://cms-pdmv-prod.web.cern.ch/mcm/requests?prepid=GEN-Run3Summer22MiniAODv4-00317
+   - NanoAOD (CMSSW_13_0_13): https://cms-pdmv-prod.web.cern.ch/mcm/requests?prepid=GEN-Run3Summer22NanoAODv12-00317
 
 ## Inputs
 
@@ -22,7 +23,7 @@
 
 For the CMSSW full simulation, first choose the campaign which is closest to your analysis.
 
-1. Select one campaign. For example I choose: [https://cms-pdmv.cern.ch/mcm/requests?prepid=B2G-RunIIAutumn18NanoAODv6-01916&page=0&shown=127](https://cms-pdmv.cern.ch/mcm/requests?prepid=B2G-RunIIAutumn18NanoAODv6-01916&page=0&shown=127)
+1. Select one campaign. For example I choose: https://cms-pdmv-prod.web.cern.ch/mcm/requests?prepid=GEN-Run3Summer22NanoAODv12-00317
 
 2. Go to the chains and select each chain one by one and do the following for each of them.
 
@@ -58,12 +59,12 @@ For the CMSSW full simulation, first choose the campaign which is closest to you
 
 # Condor Job Submission
 
-```
-git clone git@github.com:tiwariPC/CMS_privateSignalProduction_Production.git
-cd CMS_privateSignalProduction_Production
+```sh
+git clone https://github.com/tiwariPC/CMS-privateSignalProduction.git
+cd CMS-privateSignalProduction
 ```
 
-1. place all the python configuration file inside the directory `CMS_privateSignalProduction_Production`.
+1. place all the python configuration file inside the directory `CMS-privateSignalProduction`.
 2. Update the `privateSignalProduction.submit` and `privateSignalProduction.sh` files.
     1. In file `privateSignalProduction.sh` you need to replace the python configuration file name at appropriate places.
     1. Add the appropriate number of events and jobs. For example:
@@ -73,7 +74,7 @@ cd CMS_privateSignalProduction_Production
 
 4. submit the condor jobs.
 
-```bash
-voms-proxy-init --voms cms --valid 168:00
-condor_submit RunGENSIM_condor.submit
+```sh
+voms-proxy-init --rfc --voms cms --valid 192:00
+condor_submit privateSignalProduction.submit
 ```

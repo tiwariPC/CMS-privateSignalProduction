@@ -24,7 +24,7 @@ class FileHelper:
 
         self.eosString = "/eos/uscms"
 
-        print("==> Time stamp:", self.dirName)
+        print("===> Time stamp:", self.dirName)
 
     # --------------------------------------------------
 
@@ -34,7 +34,7 @@ class FileHelper:
 
         os.makedirs(logDirName, exist_ok=True)
 
-        print("==> Created directory for log files:", logDirName)
+        print("===> Created directory for log files:", logDirName)
         return logDirName
 
     # --------------------------------------------------
@@ -48,7 +48,7 @@ class FileHelper:
             path
         ])
 
-        print("==> Created EOS directory:", path)
+        print("===> Created EOS directory:", path)
         return path
 
     # --------------------------------------------------
@@ -103,7 +103,7 @@ class FileHelper:
             storeAreaDirName2
         ])
 
-        print("==> Created directory for log files:", logDirName)
-        print("==> Created EOS directory:", storeAreaDirName2)
+        print("===> Created directory for log files:", logDirName)
+        print("===> Created EOS directory:", storeAreaDirName2)
 
         return logDirName, storeAreaDirName2
