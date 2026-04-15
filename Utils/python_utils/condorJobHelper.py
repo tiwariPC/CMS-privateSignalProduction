@@ -48,7 +48,7 @@ class condorJobHelper(object):
         outSubmit = open(self.fileName+'.submit','a')
         outSubmit.write('\n'+'Output = '+self.logFilePath+os.sep+'$(job_name)_$(Cluster)_$(Process).stdout')
         outSubmit.write('\n'+'Error  = '+self.logFilePath+os.sep+'$(job_name)_$(Cluster)_$(Process).stderr')
-        outSubmit.write('\n'+'Log  = '+self.logFilePath+os.sep+'$(job_name)_$(Cluster)_$(Process).log')
+        outSubmit.write('\n'+'Log  = '+self.logFilePath+os.sep+'$(Cluster).log')
         outSubmit.write('\n'+'Arguments = $(Cluster) $(Process) $(job_args)')
         outSubmit.write('\n'+'Queue '+str(self.Queue)+' job_name, job_args from (')
         for job_name, job_args in self.jobList:
