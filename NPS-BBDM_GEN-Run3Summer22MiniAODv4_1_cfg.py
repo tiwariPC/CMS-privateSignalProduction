@@ -30,10 +30,7 @@ process.maxEvents = cms.untracked.PSet(
 
 # Input source
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring( (
-        'NPS-BBDM_GEN-Run3Summer22DRPremix.root',
-
-     ) ),
+    fileNames = cms.untracked.vstring('file:NPS-BBDM_GEN-Run3Summer22DRPremix.root' ),
     secondaryFileNames = cms.untracked.vstring()
 )
 

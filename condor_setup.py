@@ -9,6 +9,7 @@ from color_style import style
 
 """Fields changed by user"""
 StringToChange = "2022"
+nEvents = 200  # number of events per job
 condor_file_name = 'privateSignalProduction'
 storeAreaPath = "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_PrivateSamples"
 storeAreaPathForlogs = "."
@@ -104,10 +105,10 @@ outScript.write("\n" + "cd CMSSW_12_4_14_patch3/src/")
 outScript.write("\n" + "eval $(scram runtime -sh)")
 outScript.write("\n" + "cd -")
 outScript.write("\n" + 'echo "+=============================="')
-outScript.write(
-    "\n"
-    + 'sed -i "s/args = cms.vstring.*/args = cms.vstring(\\"${5}\\"),/g" NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py '
-)
+outScript.write("\n"+ 'sed -i "s/args = cms.vstring.*/args = cms.vstring(\\"${5}\\"),/g" NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py')
+outScript.write("\n" + f'sed -i "s/nEvents = cms.untracked.uint32.*/nEvents = cms.untracked.uint32({nEvents}),/g" NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py')
+outScript.write("\n" + f'sed -i "s/input = cms.untracked.int32.*/input = cms.untracked.int32({nEvents}),/g" NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py')
+outScript.write("\n" + f'sed -i "s/output = cms.untracked.int32.*/output = cms.untracked.int32({nEvents})/g" NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py')
 outScript.write("\n" + 'echo "+=============================="')
 outScript.write("\n" + 'echo "cmsRun NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py"')
 outScript.write("\n" + "cmsRun NPS-BBDM_GEN-Run3Summer22wmLHEGS_1_cfg.py ")
@@ -128,6 +129,9 @@ outScript.write("\n" + 'echo "List all root files = "')
 outScript.write("\n" + "ls *.root")
 outScript.write("\n" + 'echo "+=============================="')
 outScript.write("\n" + 'echo "Loading CMSSW env for RECO step"')
+outScript.write("\n" + "eval $(scram unsetenv -sh)")
+outScript.write("\n" + "source /cvmfs/cms.cern.ch/cmsset_default.sh")
+outScript.write("\n" + "export SCRAM_ARCH=el8_amd64_gcc11")
 outScript.write("\n" + "eval $(scramv1 project CMSSW CMSSW_13_0_13)")
 outScript.write("\n" + "cd CMSSW_13_0_13/src/")
 outScript.write("\n" + "eval $(scram runtime -sh)")
