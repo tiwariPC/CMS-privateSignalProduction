@@ -29,7 +29,8 @@ For the CMSSW full simulation, first choose the campaign which is closest to you
 
    1. On "Actions" click on "view chains": you will see a chain of McM processes connected by arrows and ending with your chosen NanoAOD sample.
    1. For *each* of these processes (click on them one by one), on "Actions" click on "get setup command" to get a piece of bash script - in this case 4 pieces.
-   1. Save each pieced in different `<filename>_1.sh, <filename>_2.sh, <filename>_3.sh, <filename>_4.sh` files.
+   1. Save each pieced in different `<filename>_1.sh, <filename>_2.sh, <filename>_3.sh, <filename>_4.sh` files, as present in the mcm-scripts/ directory.
+   1. In the last script, which produces the configuration file for nanoAOD, the string `NANOEDMAODSIM` has to be replaced with `NANOAODSIM` in cmsDriver command
    1. Brief introduction of each file is given here[^intro_files].
 
 [^intro_files]: First step is known as the GEN-SIM step. Second one is DR1 and DR2 third one will generate MINIAOD and finally the fourth one will create the NanoAOD files.
