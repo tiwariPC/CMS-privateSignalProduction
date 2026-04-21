@@ -62,7 +62,7 @@ EVENTS=1763
 
 
 # cmsDriver command
-cmsDriver.py  --eventcontent NANOEDMAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAODSIM --conditions 130X_mcRun3_2022_realistic_v5 --step NANO --scenario pp --era Run3 --python_filename GEN-Run3Summer22NanoAODv12-00317_1_cfg.py --fileout file:GEN-Run3Summer22NanoAODv12-00317.root --filein "dbs:/Zto2Nu-2Jets_PTNuNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v1/MINIAODSIM" --number 1763 --number_out 1763 --no_exec --mc || exit $? ;
+cmsDriver.py  --eventcontent NANOAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAODSIM --conditions 130X_mcRun3_2022_realistic_v5 --step NANO --scenario pp --era Run3 --python_filename GEN-Run3Summer22NanoAODv12-00317_1_cfg.py --fileout file:GEN-Run3Summer22NanoAODv12-00317.root --filein "dbs:/Zto2Nu-2Jets_PTNuNu-40to100_2J_TuneCP5_13p6TeV_amcatnloFXFX-pythia8/Run3Summer22MiniAODv4-130X_mcRun3_2022_realistic_v5-v1/MINIAODSIM" --number 1763 --number_out 1763 --no_exec --mc || exit $? ;
 
 # End of GEN-Run3Summer22NanoAODv12-00317_test.sh file
 EndOfTestFile

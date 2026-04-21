@@ -2,7 +2,7 @@
 # using:
 # Revision: 1.19
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v
-# with command line options: --eventcontent NANOEDMAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAODSIM --conditions 130X_mcRun3_2022_realistic_v5 --step NANO --scenario pp --era Run3 --python_filename NPS-BBDM_GEN-Run3Summer22NanoAODv12_1_cfg.py --fileout file:NPS-BBDM_GEN-Run3Summer22NanoAODv12.root --filein NPS-BBDM_GEN-Run3Summer22MiniAODv4.root --number 1763 --number_out 1763 --no_exec --mc
+# with command line options: --eventcontent NANOAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier NANOAODSIM --conditions 130X_mcRun3_2022_realistic_v5 --step NANO --scenario pp --era Run3 --python_filename NPS-BBDM_GEN-Run3Summer22NanoAODv12_1_cfg.py --fileout file:NPS-BBDM_GEN-Run3Summer22NanoAODv12.root --filein NPS-BBDM_GEN-Run3Summer22MiniAODv4.root --number 1763 --number_out 1763 --no_exec --mc
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.Eras.Era_Run3_cff import Run3
@@ -28,8 +28,7 @@ process.maxEvents = cms.untracked.PSet(
 
 # Input source
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring( ('file:NPS-BBDM_GEN-Run3Summer22MiniAODv4.root'
-     ) ),
+    fileNames = cms.untracked.vstring(("file:NPS-BBDM_GEN-Run3Summer22MiniAODv4.root") ),
     secondaryFileNames = cms.untracked.vstring()
 )
 
@@ -67,14 +66,14 @@ process.options = cms.untracked.PSet(
 
 # Production Info
 process.configurationMetadata = cms.untracked.PSet(
-    annotation = cms.untracked.string('--eventcontent nevts:1763'),
+    annotation = cms.untracked.string('--eventcontent nevts:-1'),
     name = cms.untracked.string('Applications'),
     version = cms.untracked.string('$Revision: 1.19 $')
 )
 
 # Output definition
 
-process.NANOEDMAODSIMoutput = cms.OutputModule("PoolOutputModule",
+process.NANOAODSIMoutput = cms.OutputModule("NanoAODOutputModule",
     compressionAlgorithm = cms.untracked.string('LZMA'),
     compressionLevel = cms.untracked.int32(9),
     dataset = cms.untracked.PSet(
@@ -94,10 +93,10 @@ process.GlobalTag = GlobalTag(process.GlobalTag, '130X_mcRun3_2022_realistic_v5'
 # Path and EndPath definitions
 process.nanoAOD_step = cms.Path(process.nanoSequenceMC)
 process.endjob_step = cms.EndPath(process.endOfProcess)
-process.NANOEDMAODSIMoutput_step = cms.EndPath(process.NANOEDMAODSIMoutput)
+process.NANOAODSIMoutput_step = cms.EndPath(process.NANOAODSIMoutput)
 
 # Schedule definition
-process.schedule = cms.Schedule(process.nanoAOD_step,process.endjob_step,process.NANOEDMAODSIMoutput_step)
+process.schedule = cms.Schedule(process.nanoAOD_step,process.endjob_step,process.NANOAODSIMoutput_step)
 from PhysicsTools.PatAlgos.tools.helpers import associatePatAlgosToolsTask
 associatePatAlgosToolsTask(process)
 
