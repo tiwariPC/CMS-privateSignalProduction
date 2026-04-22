@@ -181,7 +181,7 @@ process.generator = cms.EDFilter("Pythia8HadronizerFilter",
 
 
 process.externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
-    args = cms.vstring('/cvmfs/cms.cern.ch/phys_generator/gridpacks/PdmV/Run3Summer22/MadGraph5_aMCatNLO/Z/Zto2Nu-2Jets_2J_PTNuNu-40to100_amcatnloFXFX-pythia8_slc7_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz'),
+    args = cms.vstring('/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_500_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz'),
     generateConcurrently = cms.untracked.bool(False),
     nEvents = cms.untracked.uint32(10),
     numberOfParameters = cms.uint32(1),
