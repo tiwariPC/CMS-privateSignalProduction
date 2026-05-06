@@ -18,129 +18,149 @@ generator = cms.EDFilter(
 
 grid_points = [
     {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_1000_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_1000_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_100_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_100_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_10_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_10_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_1150_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_1150_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_1300_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_1300_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_1450_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_1450_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_150_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_150_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_400_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_400_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_450_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_450_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_500_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_500_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_50_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_50_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_600_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_600_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_700_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_700_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_850_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_1500_MH4_850_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_100_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_600_MH4_100_Mchi_1",
-        "weight": 0.04,
-    },
-    {
         "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_10_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
         "name": "MH3_600_MH4_10_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_150_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_600_MH4_150_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_200_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_600_MH4_200_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_250_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_600_MH4_250_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_300_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_600_MH4_300_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_350_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_600_MH4_350_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_400_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_600_MH4_400_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_450_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_600_MH4_450_Mchi_1",
-        "weight": 0.04,
-    },
-    {
-        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_500_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
-        "name": "MH3_600_MH4_500_Mchi_1",
-        "weight": 0.04,
+        "weight": 0.03448275862,
     },
     {
         "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_50_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
         "name": "MH3_600_MH4_50_Mchi_1",
-        "weight": 0.04,
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_100_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_600_MH4_100_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_150_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_600_MH4_150_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_200_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_600_MH4_200_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_250_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_600_MH4_250_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_300_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_600_MH4_300_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_350_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_600_MH4_350_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_400_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_600_MH4_400_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_450_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_600_MH4_450_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_600_MH4_500_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_600_MH4_500_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_10_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_10_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_50_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_50_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_100_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_100_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_150_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_150_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_200_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_200_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_250_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_250_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_300_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_300_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_350_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_350_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_400_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_400_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_450_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_450_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_500_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_500_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_600_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_600_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_700_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_700_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_850_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_850_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_1000_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_1000_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_1150_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_1150_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_1300_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_1300_Mchi_1",
+        "weight": 0.03448275862,
+    },
+    {
+        "gridpack_path": "/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks/bbDM_2HDMa_MH3_1500_MH4_1450_Mchi_1_el8_amd64_gcc10_CMSSW_12_4_8_tarball.tar.xz",
+        "name": "MH3_1500_MH4_1450_Mchi_1",
+        "weight": 0.03448275862,
     },
 ]
 
