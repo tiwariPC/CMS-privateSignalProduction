@@ -50,11 +50,12 @@ class condorJobHelper(object):
         outSubmit.write('\n'+'Error  = '+self.logFilePath+os.sep+'$(job_name)_$(Cluster)_$(Process).stderr')
         outSubmit.write('\n'+'Log  = '+self.logFilePath+os.sep+'$(Cluster).log')
         outSubmit.write('\n'+'Arguments = $(Cluster) $(Process) $(job_args)')
-        outSubmit.write('\n'+'Queue '+str(self.Queue)+' job_name, job_args from (')
-        for job_name, job_args in self.jobList:
-            outSubmit.write('\n    '+job_name+', '+job_args)
-        outSubmit.write('\n)')
-        outSubmit.close()
+        outSubmit.write('\n'+'Queue '+str(self.Queue))
+        # outSubmit.write('\n'+'Queue '+str(self.Queue)+' job_name, job_args from (')
+        # for job_name, job_args in self.jobList:
+        #     outSubmit.write('\n    '+job_name+', '+job_args)
+        # outSubmit.write('\n)')
+        # outSubmit.close()
 
     def shFileHeaderCreater(self):
         outScript = open(self.fileName+".sh","w");

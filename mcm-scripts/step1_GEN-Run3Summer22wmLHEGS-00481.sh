@@ -26,6 +26,8 @@ export X509_USER_PROXY=$(pwd)/voms_proxy.txt
 curl -s -k https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/GEN-Run3Summer22wmLHEGS-00481 --retry 3 --create-dirs -o Configuration/GenProduction/python/GEN-Run3Summer22wmLHEGS-00481-fragment.py
 [ -s Configuration/GenProduction/python/GEN-Run3Summer22wmLHEGS-00481-fragment.py ] || exit $?;
 
+# install -D mcm-scripts/bbDM_fragment.py Configuration/GenProduction/python/GEN-Run3Summer22wmLHEGS-00481-fragment.py
+
 # Dump actual test code to a GEN-Run3Summer22wmLHEGS-00481_test.sh file that can be run in Singularity
 cat <<'EndOfTestFile' > GEN-Run3Summer22wmLHEGS-00481_test.sh
 #!/bin/bash
@@ -63,7 +65,9 @@ SEED=$(($(date +%s) % 100 + 1))
 
 
 # cmsDriver command
-cmsDriver.py Configuration/GenProduction/python/GEN-Run3Summer22wmLHEGS-00481-fragment.py --eventcontent RAWSIM,LHE --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM,LHE --conditions 124X_mcRun3_2022_realistic_v12 --beamspot Realistic25ns13p6TeVEarly2022Collision --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed="int(${SEED})" --step LHE,GEN,SIM --geometry DB:Extended --era Run3 --python_filename GEN-Run3Summer22wmLHEGS-00481_1_cfg.py --fileout file:GEN-Run3Summer22wmLHEGS-00481.root --number 1250 --number_out 100 --no_exec --mc || exit $? ;
+# cmsDriver.py Configuration/GenProduction/python/GEN-Run3Summer22wmLHEGS-00481-fragment.py --eventcontent RAWSIM,LHE --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM,LHE --conditions 124X_mcRun3_2022_realistic_v12 --beamspot Realistic25ns13p6TeVEarly2022Collision --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed="int(${SEED})" --step LHE,GEN,SIM --geometry DB:Extended --era Run3 --python_filename GEN-Run3Summer22wmLHEGS-00481_1_cfg.py --fileout file:GEN-Run3Summer22wmLHEGS-00481.root --number 1250 --number_out 100 --no_exec --mc || exit $? ;
+
+cmsDriver.py Configuration/GenProduction/python/GEN-Run3Summer22wmLHEGS-00481-fragment.py --eventcontent RAWSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM --conditions 124X_mcRun3_2022_realistic_v12 --beamspot Realistic25ns13p6TeVEarly2022Collision --customise_commands "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(25)" --step GEN,SIM --geometry DB:Extended --era Run3 --python_filename GEN-Run3Summer22wmLHEGS_1_cfg.py --fileout file:GEN-Run3Summer22wmLHEGS-00481.root --number 100 --number_out 100 --no_exec --mc || exit $? ;
 
 # End of GEN-Run3Summer22wmLHEGS-00481_test.sh file
 EndOfTestFile
