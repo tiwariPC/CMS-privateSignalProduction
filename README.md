@@ -2,6 +2,16 @@
 
 ## MCM Info
 
+### 2024
+- Campaign: `RunIII2024Summer24`
+- Gridpacks: `/eos/cms/store/group/phys_susy/sus-23-008/run3_2HDMa_typeII_bbdm_gridpacks_LHAID325300`
+   - GEN-SIM (CMSSW_14_0_22_patch1, `el8_amd64_gcc12`): `NPS-BBDM-RunIII2024Summer24GS_1_cfg.py`
+   - DRPremix step1 (CMSSW_14_0_21, `el8_amd64_gcc12`): `NPS-BBDM-RunIII2024Summer24DRPremix_1_cfg.py`
+   - DRPremix step2 (CMSSW_14_0_21, `el8_amd64_gcc12`): `NPS-BBDM-RunIII2024Summer24DRPremix_2_cfg.py`
+   - MiniAOD (CMSSW_15_0_4, `el8_amd64_gcc12`): `NPS-BBDM-RunIII2024Summer24MiniAODv6_1_cfg.py`
+   - NanoAOD (CMSSW_15_0_4, `el8_amd64_gcc12`): `NPS-BBDM-RunIII2024Summer24NanoAODv15_1_cfg.py`
+- Output file naming: `BBDM-2HDMa-fullsim_Par-LO-5f_TuneCP5_13p6TeV_madgraph-pythia8_NanoAODv15_${1}_${2}.root`
+
 ### 2022
 - Full simulation scripts download from: [GEN-chain_Run3Summer22wmLHEGS_flowRun3Summer22DRPremix_flowRun3Summer22MiniAODv4_flowRun3Summer22NanoAODv12-00313](https://cms-pdmv-prod.web.cern.ch/mcm/chained_requests?prepid=GEN-chain_Run3Summer22wmLHEGS_flowRun3Summer22DRPremix_flowRun3Summer22MiniAODv4_flowRun3Summer22NanoAODv12-00313)
    - wmLHEGENSIM (CMSSW_12_4_14_patch3): https://cms-pdmv-prod.web.cern.ch/mcm/requests?prepid=GEN-Run3Summer22wmLHEGS-00481
