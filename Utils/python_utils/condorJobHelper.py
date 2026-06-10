@@ -21,7 +21,6 @@ class condorJobHelper(object):
         self.logFileName = logFileName
         self.Arguments = Arguments
         self.Queue = Queue
-        self.jobList = []
 
     def submitFileHeaderCreater(self):
         outSubmit = open(self.fileName+'.submit','w')
@@ -40,22 +39,13 @@ class condorJobHelper(object):
         if self.request_cpus != 0: outSubmit.write('\n'+'request_cpus = '+ str(self.request_cpus))
         return self.fileName+'.submit'
 
-    def submitFileAppendLogInfo(self):
-        self.jobList.append((self.logFileName, self.Arguments))
-        return self.fileName+'.submit'
-
     def submitJobsWriter(self):
         outSubmit = open(self.fileName+'.submit','a')
-        outSubmit.write('\n'+'Output = '+self.logFilePath+os.sep+'$(job_name)_$(Cluster)_$(Process).stdout')
-        outSubmit.write('\n'+'Error  = '+self.logFilePath+os.sep+'$(job_name)_$(Cluster)_$(Process).stderr')
+        outSubmit.write('\n'+'Output = '+self.logFilePath+os.sep+'$(Cluster)_$(Process).stdout')
+        outSubmit.write('\n'+'Error  = '+self.logFilePath+os.sep+'$(Cluster)_$(Process).stderr')
         outSubmit.write('\n'+'Log  = '+self.logFilePath+os.sep+'$(Cluster).log')
         outSubmit.write('\n'+'Arguments = $(Cluster) $(Process) $(job_args)')
         outSubmit.write('\n'+'Queue '+str(self.Queue))
-        # outSubmit.write('\n'+'Queue '+str(self.Queue)+' job_name, job_args from (')
-        # for job_name, job_args in self.jobList:
-        #     outSubmit.write('\n    '+job_name+', '+job_args)
-        # outSubmit.write('\n)')
-        # outSubmit.close()
 
     def shFileHeaderCreater(self):
         outScript = open(self.fileName+".sh","w");
@@ -78,6 +68,5 @@ class condorJobHelper(object):
 
     def submitAndShFileCreater(self):
         submitFile = self.submitFileHeaderCreater()
-        submitFile = self.submitFileAppendLogInfo()
-        shFile = self.shFileCreater()
+        shFile = self.shFileHeaderCreater()
         return submitFile, shFile

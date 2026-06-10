@@ -77,7 +77,6 @@ for key in gridpackList.models:
             DirName = ( DirName[0]+ "_" + DirName[1] + "_" + DirName[2] + "_" + DirName[3] + "_" + DirName[4] + "_" + DirName[5])
             condorJobHelper.logFileName = DirName
             condorJobHelper.Arguments = ( "NPS-BBDM-RunIII2024Summer24GS_1_cfg.py " + DirName + os.sep + dirTag + "  " + gridpack.replace("/", "\\/"))
-            submitFile = condorJobHelper.submitFileAppendLogInfo()
 
 condorJobHelper.submitJobsWriter()
 
