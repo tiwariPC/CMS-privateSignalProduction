@@ -30,6 +30,6 @@ EVENTS=100
 
 
 # cmsDriver command
-cmsDriver.py Configuration/GenProduction/python/NPS-BBDM-RunIII2024Summer24GS-fragment.py --eventcontent RAWSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM --conditions 140X_mcRun3_2024_realistic_v26 --beamspot DBrealistic --customise_commands "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(1)" --step GEN,SIM --geometry DB:Extended --era Run3_2024 --python_filename NPS-BBDM-RunIII2024Summer24GS_1_cfg.py --fileout file:NPS-BBDM-RunIII2024Summer24GS.root --number 100 --number_out 100 --no_exec --mc || exit $? ;
+cmsDriver.py Configuration/GenProduction/python/NPS-BBDM-RunIII2024Summer24GS-fragment.py --eventcontent RAWSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM --conditions 140X_mcRun3_2024_realistic_v26 --beamspot DBrealistic --customise_commands "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(5)" --step GEN,SIM --geometry DB:Extended --era Run3_2024 --python_filename NPS-BBDM-RunIII2024Summer24GS_1_cfg.py --fileout file:NPS-BBDM-RunIII2024Summer24GS.root --number 100 --number_out 100 --no_exec --mc || exit $? ;
 
 # End of NPS-BBDM-RunIII2024Summer24GS_test.sh file

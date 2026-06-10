@@ -2,7 +2,7 @@
 # using:
 # Revision: 1.19
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v
-# with command line options: Configuration/GenProduction/python/NPS-BBDM-RunIII2024Summer24GS-fragment.py --eventcontent RAWSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM --conditions 140X_mcRun3_2024_realistic_v26 --beamspot DBrealistic --customise_commands process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(1) --step GEN,SIM --geometry DB:Extended --era Run3_2024 --python_filename NPS-BBDM-RunIII2024Summer24GS_1_cfg.py --fileout file:NPS-BBDM-RunIII2024Summer24GS.root --number 100 --number_out 100 --no_exec --mc
+# with command line options: Configuration/GenProduction/python/NPS-BBDM-RunIII2024Summer24GS-fragment.py --eventcontent RAWSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM --conditions 140X_mcRun3_2024_realistic_v26 --beamspot DBrealistic --customise_commands process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(5) --step GEN,SIM --geometry DB:Extended --era Run3_2024 --python_filename NPS-BBDM-RunIII2024Summer24GS_1_cfg.py --fileout file:NPS-BBDM-RunIII2024Summer24GS.root --number 100 --number_out 100 --no_exec --mc
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.Eras.Era_Run3_2024_cff import Run3_2024
@@ -1739,7 +1739,7 @@ process = addMonitoring(process)
 
 # Customisation from command line
 
-process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(1)
+process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(5)
 # Add early deletion of temporary data products to reduce peak memory need
 from Configuration.StandardSequences.earlyDeleteSettings_cff import customiseEarlyDelete
 process = customiseEarlyDelete(process)
